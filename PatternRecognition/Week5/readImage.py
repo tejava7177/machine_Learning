@@ -20,7 +20,7 @@ def print_matInfo(name, image):
 # 이미지 읽기 및 정보 출력
 title1, title2 = 'gray2gray', 'gray2color'
 gray2gray = cv2.imread("/Users/simjuheun/Downloads/images/read_gray.jpg", cv2.IMREAD_GRAYSCALE)
-gray2color = cv2.imread("/Users/simjuheun/Downloads/images/read_gray.jpg", cv2.IMREAD_COLOR)
+gray2color = cv2.imread("/Users/simjuheun/Downloads/images/read_color.jpg", cv2.IMREAD_COLOR)
 
 print_matInfo(title1, gray2gray)
 print_matInfo(title2, gray2color)
