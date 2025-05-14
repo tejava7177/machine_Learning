@@ -54,6 +54,7 @@ cv2.imshow("dst1_User", dst1)
 cv2.imshow("dst2_OpenCV", dst2)
 
 cv2.imshow("hist_img", hist_img)
+cv2.imshow("User_hist", hist_img1)
 cv2.imshow("OpenCV_hist", hist_img2)
 
 cv2.waitKey(0)
