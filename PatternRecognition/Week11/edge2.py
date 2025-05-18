@@ -34,6 +34,7 @@ dst1 = cv2.convertScaleAbs(dst1)
 dst2 = cv2.convertScaleAbs(dst2)
 dst3 = cv2.convertScaleAbs(dst3)
 
+
 # 결과 영상 출력
 cv2.imshow("image", image)
 cv2.imshow("filter2D 4-direction", dst1)
