@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 #Grayscale 이미지의 히스토그램 시각화
 
 # 이미지 불러오기 (Grayscale)
-img = cv2.imread("/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/image/bird.jpg", cv2.IMREAD_GRAYSCALE)
+img = cv2.imread("/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/source/bird.jpg", cv2.IMREAD_GRAYSCALE)
 
 # 히스토그램 계산
 hist = cv2.calcHist([img], [0], None, [256], [0, 256])

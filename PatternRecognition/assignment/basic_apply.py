@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 from PIL import Image, ImageTk
 
 # -- 원본 이미지 불러오기 --
-img = cv2.imread("/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/image/bird.jpg", cv2.IMREAD_GRAYSCALE)
+img = cv2.imread("/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/source/bird.jpg", cv2.IMREAD_GRAYSCALE)
 if img is None:
     raise Exception("이미지를 불러올 수 없습니다.")
 
