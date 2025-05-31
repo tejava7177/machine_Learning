@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-video_path = "/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/source/videoSource.mp4"
+video_path = "/PatternRecognition/assignment/source/videoSource.mp4"
 cap = cv2.VideoCapture(video_path)
 
 # 필터 정의

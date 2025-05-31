@@ -41,11 +41,31 @@ bright_minus = cv2.subtract(img, 50)
 contrast_high = cv2.multiply(img, 1.5)
 contrast_low = cv2.multiply(img, 0.5)
 
-# 결과 출력
-cv2.imshow("Original", img)
-cv2.imshow("Bright +50", bright_plus)
-cv2.imshow("Bright -50", bright_minus)
-cv2.imshow("Contrast x1.5", contrast_high)
-cv2.imshow("Contrast x0.5", contrast_low)
+# 결과 출력 - 윈도우 이름 지정 + 위치 출력
+windows = {
+    "Original": img,
+    "Bright +50": bright_plus,
+    "Bright -50": bright_minus,
+    "Contrast x1.5": contrast_high,
+    "Contrast x0.5": contrast_low
+}
+
+# 윈도우 배치 간격
+start_x, start_y = 100, 100
+dx, dy = 300, 200  # 창 간 간격
+
+for i, (name, image) in enumerate(windows.items()):
+    # 위치 계산
+    x = start_x + (i % 3) * dx
+    y = start_y + (i // 3) * dy
+
+    # 윈도우 생성 및 위치 지정
+    cv2.namedWindow(name, cv2.WINDOW_NORMAL)
+    cv2.moveWindow(name, x, y)
+    cv2.imshow(name, image)
+
+    # 위치 정보 콘솔 출력
+    print(f"'{name}' opened at position ({x}, {y})")
+
 cv2.waitKey(0)
 cv2.destroyAllWindows()

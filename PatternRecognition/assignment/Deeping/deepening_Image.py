@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-img = cv2.imread('/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/source/bird.jpg', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('/PatternRecognition/assignment/source/bird.jpg', cv2.IMREAD_GRAYSCALE)
 
 # 로버츠
 def apply_roberts(img):

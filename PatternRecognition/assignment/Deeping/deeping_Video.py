@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # 영상 파일 경로
-video_path = "/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/source/videoSource.mp4"
+video_path = "/PatternRecognition/assignment/source/videoSource.mp4"
 cap = cv2.VideoCapture(video_path)
 
 # 로버츠 마스크

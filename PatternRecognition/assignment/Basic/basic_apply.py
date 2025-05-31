@@ -1,9 +1,8 @@
 import cv2
 import numpy as np
 import tkinter as tk
-from tkinter import ttk
 from matplotlib import pyplot as plt
-from PIL import Image, ImageTk
+
 
 # -- 원본 이미지 불러오기 --
 img = cv2.imread("/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/source/bird.jpg", cv2.IMREAD_GRAYSCALE)
