@@ -1,11 +1,28 @@
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 
 # 영상 파일 경로
-video_path = "/PatternRecognition/assignment/source/videoSource.mp4"
+video_path = "/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/source/videoSource.mp4"
 cap = cv2.VideoCapture(video_path)
 
+# 📂 저장 경로 설정
+result_path = "/Users/simjuheun/Desktop/myProject/machine_Learning/PatternRecognition/assignment/source/result"
+os.makedirs(result_path, exist_ok=True)
+
+# 영상 속성 얻기 (프레임 크기, FPS)
+width  = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+fps    = cap.get(cv2.CAP_PROP_FPS)
+
+
+
+# 🔧 VideoWriter 객체 생성 (그레이스케일 영상도 3채널로 저장)
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # 또는 'XVID' for .avi
+# ⚠️ isColor=True로 설정하고, 저장 시 3채널 영상만 쓰기
+roberts_writer = cv2.VideoWriter(os.path.join(result_path, "roberts_output.mp4"), fourcc, fps, (width, height), isColor=True)
+prewitt_writer = cv2.VideoWriter(os.path.join(result_path, "prewitt_output.mp4"), fourcc, fps, (width, height), isColor=True)
 # 로버츠 마스크
 roberts_x = np.array([[1, 0], [0, -1]], dtype=np.float32)
 roberts_y = np.array([[0, 1], [-1, 0]], dtype=np.float32)
@@ -32,6 +49,11 @@ while cap.isOpened():
     pre_y = cv2.filter2D(frame_gray, -1, prewitt_y)
     pre_edge = cv2.addWeighted(pre_x, 0.5, pre_y, 0.5, 0)
 
+    # 저장 시 변환해서 write
+    roberts_writer.write(cv2.cvtColor(rob_edge, cv2.COLOR_GRAY2BGR))
+    prewitt_writer.write(cv2.cvtColor(pre_edge, cv2.COLOR_GRAY2BGR))
+
+
     cv2.imshow("Roberts", rob_edge)
     cv2.imshow("Prewitt", pre_edge)
 
@@ -55,6 +77,8 @@ while cap.isOpened():
 
     if cv2.waitKey(25) & 0xFF == ord('q'):
         break
-
+# 종료
 cap.release()
+roberts_writer.release()
+prewitt_writer.release()
 cv2.destroyAllWindows()
